@@ -1,7 +1,19 @@
-:BGAProgressBar-Android:running:
+:running:BGAProgressBar-Android:running:
 ============
 
+## 主要功能：
+- [x] Android 系统自带的 ProgressBar 的各种样式
+- [x] 带百分比数字的水平进度条样式
+- [x] 带百分比数字的圆形进度条样式
+- [ ] 彗星进度条样式
 
+## 常见问题
+
+> 1.无法显示进度 - 必须设置「style」为「@android:style/Widget.ProgressBar.Horizontal」
+
+```
+style="@android:style/Widget.ProgressBar.Horizontal"
+```
 ## 关于我
 
 | 新浪微博 | 个人主页 | 邮箱 | BGA系列开源库QQ群

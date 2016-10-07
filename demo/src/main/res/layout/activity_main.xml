@@ -1,17 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/MatchMatch">
 
     <LinearLayout
         style="@style/MatchMatch.Vertical"
-        android:gravity="center_horizontal"
-        android:padding="@dimen/gap">
+        android:gravity="center_horizontal">
 
         <Button
             style="@style/MatchWrap"
             android:onClick="jumpToDefault"
             android:text="查看系统自带 ProgressBar 支持的样式"
             android:textAllCaps="false"/>
+
+        <cn.bingoogolapple.progressbar.BGAProgressBar
+            android:id="@+id/pb_main_demo1"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:progress="40"
+            android:progressDrawable="@drawable/layer_shape4"
+            android:secondaryProgress="80"/>
+
+        <cn.bingoogolapple.progressbar.BGAProgressBar
+            android:id="@+id/pb_main_demo2"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:max="200"
+            android:padding="15dp"
+            android:progress="40"
+            app:bga_pb_mode="horizontal"/>
+
+        <cn.bingoogolapple.progressbar.BGAProgressBar
+            android:id="@+id/pb_main_demo3"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:padding="15dp"
+            android:progress="40"
+            app:bga_pb_isCapRound="true"
+            app:bga_pb_mode="horizontal"
+            app:bga_pb_reachedColor="#ff0000"
+            app:bga_pb_reachedHeight="8dp"
+            app:bga_pb_textColor="#00ff00"
+            app:bga_pb_textMargin="8dp"
+            app:bga_pb_textSize="16sp"
+            app:bga_pb_unReachedColor="#0000ff"
+            app:bga_pb_unReachedHeight="4dp"/>
+
+        <cn.bingoogolapple.progressbar.BGAProgressBar
+            android:id="@+id/pb_main_demo4"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:max="200"
+            android:padding="15dp"
+            android:progress="40"
+            app:bga_pb_mode="circle"/>
+
+        <cn.bingoogolapple.progressbar.BGAProgressBar
+            android:id="@+id/pb_main_demo5"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:padding="15dp"
+            android:progress="40"
+            app:bga_pb_isCapRound="true"
+            app:bga_pb_mode="circle"
+            app:bga_pb_radius="24dp"
+            app:bga_pb_reachedColor="#ff0000"
+            app:bga_pb_reachedHeight="8dp"
+            app:bga_pb_textColor="#00ff00"
+            app:bga_pb_textSize="14sp"
+            app:bga_pb_unReachedColor="#0000ff"
+            app:bga_pb_unReachedHeight="4dp"/>
     </LinearLayout>
 </ScrollView>

@@ -2,10 +2,23 @@
 <resources>
 
     <declare-styleable name="BGAProgressBar">
-        <attr name="bga_pb_style" format="enum">
-            <enum name="horizontal" value="0"/>
-            <enum name="circle" value="1"/>
+        <attr name="bga_pb_mode" format="enum">
+            <enum name="system" value="0"/>
+            <enum name="horizontal" value="1"/>
+            <enum name="circle" value="2"/>
+            <enum name="comet" value="3"/>
         </attr>
+
+        <attr name="bga_pb_textColor" format="reference|color"/>
+        <attr name="bga_pb_textSize" format="dimension"/>
+        <attr name="bga_pb_textMargin" format="dimension"/>
+        <attr name="bga_pb_reachedColor" format="reference|color"/>
+        <attr name="bga_pb_reachedHeight" format="dimension"/>
+        <attr name="bga_pb_unReachedColor" format="reference|color"/>
+        <attr name="bga_pb_unReachedHeight" format="dimension"/>
+        <attr name="bga_pb_isCapRound" format="boolean"/>
+
+        <attr name="bga_pb_radius" format="dimension"/>
     </declare-styleable>
 
 </resources>

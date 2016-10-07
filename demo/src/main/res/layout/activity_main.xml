@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchMatch">
+
+    <LinearLayout
+        style="@style/MatchMatch.Vertical"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/gap">
+
+        <Button
+            style="@style/MatchWrap"
+            android:onClick="jumpToDefault"
+            android:text="查看系统自带 ProgressBar 支持的样式"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+</ScrollView>

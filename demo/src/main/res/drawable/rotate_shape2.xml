@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+        android:fromDegrees="0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toDegrees="360">
+    <!--
+        innerRadiusRatio: 内圆半径等于该shape的宽除以该值,默认值为3
+        innerRadius: 内圆半径,会忽略innerRadiusRatio
+
+        可通过上面两个和下面两个两两组合来配置
+
+        thicknessRatio: 圆环的宽度等于该shape的宽除以该值,默认值为9
+        thickness: 圆环的宽度,会忽略thicknessRatio
+    -->
+    <shape
+        android:innerRadiusRatio="3"
+        android:shape="ring"
+        android:thicknessRatio="9"
+        android:useLevel="false">
+
+        <gradient
+            android:endColor="#ff0000"
+            android:startColor="#00ffffff"
+            android:type="sweep"/>
+    </shape>
+    <!--
+    <shape
+        android:innerRadius="10dp"
+        android:shape="ring"
+        android:thickness="2dp"
+        android:useLevel="false">
+        <gradient
+            android:endColor="#ff0000"
+            android:startColor="#00ffffff"
+            android:type="sweep"/>
+    </shape>
+    -->
+</rotate>

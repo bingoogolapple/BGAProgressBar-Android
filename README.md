@@ -6,6 +6,7 @@
 - [x] 带百分比数字的水平进度条样式
 - [x] 带百分比数字的圆形进度条样式
 - [ ] 彗星进度条样式
+- [ ] 波浪进度条样式
 
 ## 常见问题
 
@@ -14,6 +15,12 @@
 ```
 style="@android:style/Widget.ProgressBar.Horizontal"
 ```
+
+## 效果图
+
+![bgaprogressbar1](https://cloud.githubusercontent.com/assets/8949716/19214303/2186d78a-8db2-11e6-913f-d50586334c14.gif)
+![bgaprogressbar2](https://cloud.githubusercontent.com/assets/8949716/19214304/2190646c-8db2-11e6-870a-ddcfaff496e7.gif)
+
 ## 关于我
 
 | 新浪微博 | 个人主页 | 邮箱 | BGA系列开源库QQ群

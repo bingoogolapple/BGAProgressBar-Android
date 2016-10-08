@@ -28,6 +28,8 @@ public class BGAProgressBar extends ProgressBar {
     private int mReachedHeight;
     private int mUnReachedColor;
     private int mUnReachedHeight;
+    private boolean mIsCapRounded;
+    private boolean mIsHiddenText;
 
     private int mRadius;
 
@@ -63,13 +65,15 @@ public class BGAProgressBar extends ProgressBar {
         mPaint.setAntiAlias(true);
 
         mMode = Mode.System;
-        mTextColor = Color.BLACK;
+        mTextColor = Color.parseColor("#70A800");
         mTextSize = BGAProgressBar.sp2px(context, 10);
         mTextMargin = BGAProgressBar.dp2px(context, 4);
-        mReachedColor = Color.parseColor("#6C9FFC");
-        mReachedHeight = BGAProgressBar.dp2px(context, 4);
-        mUnReachedColor = Color.parseColor("#51535B");
-        mUnReachedHeight = BGAProgressBar.dp2px(context, 2);
+        mReachedColor = Color.parseColor("#70A800");
+        mReachedHeight = BGAProgressBar.dp2px(context, 2);
+        mUnReachedColor = Color.parseColor("#CCCCCC");
+        mUnReachedHeight = BGAProgressBar.dp2px(context, 1);
+        mIsCapRounded = false;
+        mIsHiddenText = false;
 
         mRadius = BGAProgressBar.dp2px(context, 16);
     }
@@ -101,10 +105,13 @@ public class BGAProgressBar extends ProgressBar {
             mUnReachedColor = typedArray.getColor(attr, mUnReachedColor);
         } else if (attr == R.styleable.BGAProgressBar_bga_pb_unReachedHeight) {
             mUnReachedHeight = typedArray.getDimensionPixelOffset(attr, mUnReachedHeight);
-        } else if (attr == R.styleable.BGAProgressBar_bga_pb_isCapRound) {
-            if (typedArray.getBoolean(attr, false)) {
+        } else if (attr == R.styleable.BGAProgressBar_bga_pb_isCapRounded) {
+            mIsCapRounded = typedArray.getBoolean(attr, mIsCapRounded);
+            if (mIsCapRounded) {
                 mPaint.setStrokeCap(Paint.Cap.ROUND);
             }
+        } else if (attr == R.styleable.BGAProgressBar_bga_pb_isHiddenText) {
+            mIsHiddenText = typedArray.getBoolean(attr, mIsHiddenText);
         } else if (attr == R.styleable.BGAProgressBar_bga_pb_radius) {
             mRadius = typedArray.getDimensionPixelOffset(attr, mRadius);
         }
@@ -115,9 +122,16 @@ public class BGAProgressBar extends ProgressBar {
         if (mMode == Mode.System) {
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         } else if (mMode == Mode.Horizontal) {
+            calculateTextWidthAndHeight();
+
             int width = MeasureSpec.getSize(widthMeasureSpec);
 
-            int expectHeight = getPaddingTop() + getPaddingBottom() + Math.max(mTextHeight, Math.max(mReachedHeight, mUnReachedHeight));
+            int expectHeight = getPaddingTop() + getPaddingBottom();
+            if (mIsHiddenText) {
+                expectHeight += Math.max(mReachedHeight, mUnReachedHeight);
+            } else {
+                expectHeight += Math.max(mTextHeight, Math.max(mReachedHeight, mUnReachedHeight));
+            }
             int height = resolveSize(expectHeight, heightMeasureSpec);
             setMeasuredDimension(width, height);
 
@@ -137,6 +151,10 @@ public class BGAProgressBar extends ProgressBar {
             setMeasuredDimension(expectSize, expectSize);
         } else if (mMode == Mode.Comet) {
             // TODO
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        } else if (mMode == Mode.Wave) {
+            // TODO
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         }
     }
 
@@ -150,49 +168,74 @@ public class BGAProgressBar extends ProgressBar {
             onDrawCircle(canvas);
         } else if (mMode == Mode.Comet) {
             // TODO
+            super.onDraw(canvas);
+        } else if (mMode == Mode.Wave) {
+            // TODO
+            super.onDraw(canvas);
         }
     }
 
     private void onDrawHorizontal(Canvas canvas) {
-        calculateTextWidthAndHeight();
-
         canvas.save();
         canvas.translate(getPaddingLeft(), getMeasuredHeight() / 2);
 
-        int maxReachedEndX = mMaxUnReachedEndX - mTextWidth - mTextMargin;
         float reachedRatio = getProgress() * 1.0f / getMax();
         float reachedEndX = reachedRatio * mMaxUnReachedEndX;
-        if (reachedEndX > maxReachedEndX) {
-            reachedEndX = maxReachedEndX;
-        }
-        if (reachedEndX > 0) {
-            mPaint.setColor(mReachedColor);
-            mPaint.setStrokeWidth(mReachedHeight);
-            mPaint.setStyle(Paint.Style.STROKE);
 
-            canvas.drawLine(0, 0, reachedEndX, 0, mPaint);
-        }
+        if (mIsHiddenText) {
+            if (reachedEndX > mMaxUnReachedEndX) {
+                reachedEndX = mMaxUnReachedEndX;
+            }
+            if (reachedEndX > 0) {
+                mPaint.setColor(mReachedColor);
+                mPaint.setStrokeWidth(mReachedHeight);
+                mPaint.setStyle(Paint.Style.STROKE);
+                canvas.drawLine(0, 0, reachedEndX, 0, mPaint);
+            }
 
-        mPaint.setTextAlign(Paint.Align.LEFT);
-        mPaint.setStyle(Paint.Style.FILL);
-        mPaint.setColor(mTextColor);
-        float textStartX = reachedEndX > 0 ? reachedEndX + mTextMargin : reachedEndX;
-        canvas.drawText(mText, textStartX, mTextHeight / 2, mPaint);
+            float unReachedStartX = reachedEndX;
+            if (mIsCapRounded) {
+                unReachedStartX += (mReachedHeight + mUnReachedHeight) * 1.0f / 2;
+            }
+            if (unReachedStartX < mMaxUnReachedEndX) {
+                mPaint.setColor(mUnReachedColor);
+                mPaint.setStrokeWidth(mUnReachedHeight);
+                mPaint.setStyle(Paint.Style.STROKE);
+                canvas.drawLine(unReachedStartX, 0, mMaxUnReachedEndX, 0, mPaint);
+            }
+        } else {
+            calculateTextWidthAndHeight();
+            int maxReachedEndX = mMaxUnReachedEndX - mTextWidth - mTextMargin;
+            if (reachedEndX > maxReachedEndX) {
+                reachedEndX = maxReachedEndX;
+            }
+            if (reachedEndX > 0) {
+                mPaint.setColor(mReachedColor);
+                mPaint.setStrokeWidth(mReachedHeight);
+                mPaint.setStyle(Paint.Style.STROKE);
 
-        float unReachedStartX = textStartX + mTextWidth + mTextMargin;
-        if (unReachedStartX < mMaxUnReachedEndX) {
-            mPaint.setColor(mUnReachedColor);
-            mPaint.setStrokeWidth(mUnReachedHeight);
-            mPaint.setStyle(Paint.Style.STROKE);
-            canvas.drawLine(unReachedStartX, 0, mMaxUnReachedEndX, 0, mPaint);
+                canvas.drawLine(0, 0, reachedEndX, 0, mPaint);
+            }
+
+            mPaint.setTextAlign(Paint.Align.LEFT);
+            mPaint.setStyle(Paint.Style.FILL);
+            mPaint.setColor(mTextColor);
+            float textStartX = reachedEndX > 0 ? reachedEndX + mTextMargin : reachedEndX;
+            canvas.drawText(mText, textStartX, mTextHeight / 2, mPaint);
+
+            float unReachedStartX = textStartX + mTextWidth + mTextMargin;
+            if (unReachedStartX < mMaxUnReachedEndX) {
+                mPaint.setColor(mUnReachedColor);
+                mPaint.setStrokeWidth(mUnReachedHeight);
+                mPaint.setStyle(Paint.Style.STROKE);
+                canvas.drawLine(unReachedStartX, 0, mMaxUnReachedEndX, 0, mPaint);
+            }
         }
 
         canvas.restore();
     }
 
     private void onDrawCircle(Canvas canvas) {
-        calculateTextWidthAndHeight();
-
         canvas.save();
         canvas.translate(getPaddingLeft() + mMaxStrokeWidth / 2, getPaddingTop() + mMaxStrokeWidth / 2);
 
@@ -207,11 +250,13 @@ public class BGAProgressBar extends ProgressBar {
         float sweepAngle = getProgress() * 1.0f / getMax() * 360;
         canvas.drawArc(mArcRectF, 0, sweepAngle, false, mPaint);
 
-
-        mPaint.setStyle(Paint.Style.FILL);
-        mPaint.setColor(mTextColor);
-        mPaint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText(mText, mRadius, mRadius + mTextHeight / 2, mPaint);
+        if (!mIsHiddenText) {
+            calculateTextWidthAndHeight();
+            mPaint.setStyle(Paint.Style.FILL);
+            mPaint.setColor(mTextColor);
+            mPaint.setTextAlign(Paint.Align.CENTER);
+            canvas.drawText(mText, mRadius, mRadius + mTextHeight / 2, mPaint);
+        }
 
         canvas.restore();
     }
@@ -230,7 +275,8 @@ public class BGAProgressBar extends ProgressBar {
         System,
         Horizontal,
         Circle,
-        Comet
+        Comet,
+        Wave
     }
 
     public static int dp2px(Context context, float dpValue) {

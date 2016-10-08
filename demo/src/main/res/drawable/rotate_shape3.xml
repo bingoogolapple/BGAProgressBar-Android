@@ -7,7 +7,7 @@
 
     <shape android:shape="oval">
         <gradient
-            android:endColor="#ff0000"
+            android:endColor="#FF530D"
             android:startColor="#00ffffff"
             android:type="sweep"/>
     </shape>

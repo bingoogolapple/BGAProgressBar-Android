@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private BGAProgressBar mDemo3Pb;
     private BGAProgressBar mDemo4Pb;
     private BGAProgressBar mDemo5Pb;
+    private BGAProgressBar mDemo6Pb;
+    private BGAProgressBar mDemo7Pb;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
             mDemo3Pb.setProgress(progress);
             mDemo4Pb.setProgress(progress);
             mDemo5Pb.setProgress(progress);
+            mDemo6Pb.setProgress(progress);
+            mDemo7Pb.setProgress(progress);
         }
     };
 
@@ -49,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         mDemo3Pb = (BGAProgressBar) findViewById(R.id.pb_main_demo3);
         mDemo4Pb = (BGAProgressBar) findViewById(R.id.pb_main_demo4);
         mDemo5Pb = (BGAProgressBar) findViewById(R.id.pb_main_demo5);
+        mDemo6Pb = (BGAProgressBar) findViewById(R.id.pb_main_demo6);
+        mDemo7Pb = (BGAProgressBar) findViewById(R.id.pb_main_demo7);
 
         mHandler.sendEmptyMessageDelayed(WHAT_UPDATE, 400);
     }

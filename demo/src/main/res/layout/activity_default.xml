@@ -21,10 +21,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/gap"
             android:progress="40"
-            android:progressBackgroundTint="#0000ff"
-            android:progressTint="#ff0000"
+            android:progressBackgroundTint="#6DBCDB"
+            android:progressTint="#FF530D"
             android:secondaryProgress="80"
-            android:secondaryProgressTint="#00ff00"/>
+            android:secondaryProgressTint="#70A800"/>
 
         <ProgressBar
             style="@android:style/Widget.Holo.ProgressBar.Horizontal"
@@ -40,10 +40,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/gap"
             android:progress="40"
-            android:progressBackgroundTint="#0000ff"
-            android:progressTint="#ff0000"
+            android:progressBackgroundTint="#6DBCDB"
+            android:progressTint="#FF530D"
             android:secondaryProgress="80"
-            android:secondaryProgressTint="#00ff00"/>
+            android:secondaryProgressTint="#70A800"/>
 
         <ProgressBar
             style="@android:style/Widget.Material.ProgressBar.Horizontal"
@@ -59,10 +59,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/gap"
             android:progress="40"
-            android:progressBackgroundTint="#0000ff"
-            android:progressTint="#ff0000"
+            android:progressBackgroundTint="#6DBCDB"
+            android:progressTint="#FF530D"
             android:secondaryProgress="80"
-            android:secondaryProgressTint="#00ff00"/>
+            android:secondaryProgressTint="#70A800"/>
 
         <LinearLayout
             style="@style/MatchWrap.Horizontal"

@@ -6,9 +6,9 @@
             <corners android:radius="10dp"/>
             <gradient
                 android:angle="270"
-                android:centerColor="#3300ff00"
-                android:endColor="#330000ff"
-                android:startColor="#33ff0000"/>
+                android:centerColor="#3370A800"
+                android:endColor="#336DBCDB"
+                android:startColor="#33FF530D"/>
         </shape>
     </item>
 
@@ -18,9 +18,9 @@
                 <corners android:radius="10dp"/>
                 <gradient
                     android:angle="270"
-                    android:centerColor="#8800ff00"
-                    android:endColor="#880000ff"
-                    android:startColor="#88ff0000"/>
+                    android:centerColor="#8870A800"
+                    android:endColor="#886DBCDB"
+                    android:startColor="#88FF530D"/>
             </shape>
         </clip>
     </item>
@@ -31,9 +31,9 @@
                 <corners android:radius="10dp"/>
                 <gradient
                     android:angle="270"
-                    android:centerColor="#00ff00"
-                    android:endColor="#0000ff"
-                    android:startColor="#ff0000"/>
+                    android:centerColor="#70A800"
+                    android:endColor="#6DBCDB"
+                    android:startColor="#FF530D"/>
             </shape>
         </clip>
     </item>

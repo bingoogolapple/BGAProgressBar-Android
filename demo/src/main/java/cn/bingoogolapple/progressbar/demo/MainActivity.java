@@ -59,6 +59,12 @@ public class MainActivity extends AppCompatActivity {
         mHandler.sendEmptyMessageDelayed(WHAT_UPDATE, 400);
     }
 
+    @Override
+    protected void onDestroy() {
+        mHandler.removeMessages(WHAT_UPDATE);
+        super.onDestroy();
+    }
+
     /**
      * 查看系统自带 ProgressBar 支持的样式
      *

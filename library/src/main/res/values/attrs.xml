@@ -2,24 +2,38 @@
 <resources>
 
     <declare-styleable name="BGAProgressBar">
+        <!-- 进度条样式，默认值为 system -->
         <attr name="bga_pb_mode" format="enum">
+            <!-- 系统自带样式 -->
             <enum name="system" value="0"/>
+            <!-- 水平进度条 -->
             <enum name="horizontal" value="1"/>
+            <!-- 圆形进度条 -->
             <enum name="circle" value="2"/>
+            <!-- 彗星进度条 -->
             <enum name="comet" value="3"/>
+            <!-- 水波纹进度条 -->
             <enum name="wave" value="4"/>
         </attr>
-
+        <!-- 文字颜色，默认值为 #70A800 -->
         <attr name="bga_pb_textColor" format="reference|color"/>
+        <!-- 文字大小，默认值为 10sp -->
         <attr name="bga_pb_textSize" format="dimension"/>
+        <!-- 文字和进度条之间的间距，默认值为 4dp -->
         <attr name="bga_pb_textMargin" format="dimension"/>
+        <!-- 已完成进度的颜色，默认值为 #70A800 -->
         <attr name="bga_pb_reachedColor" format="reference|color"/>
+        <!-- 已完成进度的高度，默认值为 2dp -->
         <attr name="bga_pb_reachedHeight" format="dimension"/>
+        <!-- 未完成进度的颜色，默认值为 #CCCCCC -->
         <attr name="bga_pb_unReachedColor" format="reference|color"/>
+        <!-- 未完成进度的高度，默认值为 1dp -->
         <attr name="bga_pb_unReachedHeight" format="dimension"/>
+        <!-- 是否为圆角，默认值为 false -->
         <attr name="bga_pb_isCapRounded" format="boolean"/>
+        <!-- 是否隐藏文字，默认值为 false -->
         <attr name="bga_pb_isHiddenText" format="boolean"/>
-
+        <!-- 圆形进度条半径，默认值为 16dp -->
         <attr name="bga_pb_radius" format="dimension"/>
     </declare-styleable>
 

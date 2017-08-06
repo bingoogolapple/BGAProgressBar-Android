@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion ANDROID_BUILD_SDK_VERSION as int
@@ -13,7 +15,10 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$KOTLIN_VERSION"
+    compile "org.jetbrains.anko:anko:0.10.1"
 
 //    compile project(':library')
 

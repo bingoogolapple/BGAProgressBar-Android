@@ -1,12 +1,12 @@
 package cn.bingoogolapple.progressbar.demo
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 import java.lang.ref.WeakReference
 
 class MainActivity : AppCompatActivity() {
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
      * 查看系统自带 ProgressBar 支持的样式
      */
     fun jumpToDefault(v: View) {
-        startActivity(Intent(this, DefaultActivity::class.java))
+        startActivity<DefaultActivity>()
     }
 
     companion object {

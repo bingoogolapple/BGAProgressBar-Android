@@ -12,15 +12,19 @@ android {
         versionCode VERSION_CODE as int
         versionName VERSION_NAME
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
-    compile "org.jetbrains.kotlin:kotlin-reflect:$KOTLIN_VERSION"
-    compile "org.jetbrains.anko:anko:0.10.1"
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$KOTLIN_VERSION"
+    implementation "org.jetbrains.anko:anko:0.10.4"
 
-//    compile project(':library')
+//    implementation project(':library')
 
-    compile 'cn.bingoogolapple:bga-progressbar:1.0.0@aar'
+    implementation 'cn.bingoogolapple:bga-progressbar:1.0.1@aar'
 }

@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         private val WHAT_UPDATE = 1
     }
 
-    private static class UpdateProgressHandler(activity: MainActivity) : Handler() {
+    private class UpdateProgressHandler(activity: MainActivity) : Handler() {
         private val mActivity: WeakReference<MainActivity> = WeakReference<MainActivity>(activity)
 
         override fun handleMessage(msg: Message) {

@@ -29,11 +29,11 @@ style="@android:style/Widget.ProgressBar.Horizontal"
 
 ### 1.添加 Gradle 依赖
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/cn.bingoogolapple/bga-progressbar/badge.svg)](https://maven-badges.herokuapp.com/maven-central/cn.bingoogolapple/bga-progressbar) 「latestVersion」指的是左边这个 maven-central 徽章后面的「数字」，请自行替换。请不要再来问我「latestVersion」是什么了
+[![Download](https://api.bintray.com/packages/bingoogolapple/maven/bga-progressbar/images/download.svg)](https://bintray.com/bingoogolapple/maven/bga-progressbar/_latestVersion) bga-progressbar 后面的「latestVersion」指的是左边这个 Download 徽章后面的「数字」，请自行替换。请不要再来问我「latestVersion」是什么了
 
 ```groovy
 dependencies {
-    compile 'cn.bingoogolapple:bga-progressbar:latestVersion@aar'
+    implementation 'cn.bingoogolapple:bga-progressbar:latestVersion@aar'
 }
 ```
 

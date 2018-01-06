@@ -262,7 +262,9 @@ public class BGAProgressBar extends ProgressBar {
     }
 
     private void calculateTextWidthAndHeight() {
-        mText = String.format("%d", getProgress() * 100 / getMax()) + "%";
+        //fix by Michael 修改参数溢出问题。
+        //mText = String.format("%d", getProgress() * 100 / getMax()) + "%";
+        mText = String.format("%d", (int) (getProgress() * 1.0f / getMax() * 100)) + "%";
         mPaint.setTextSize(mTextSize);
         mPaint.setStyle(Paint.Style.FILL);
 

@@ -1,6 +1,9 @@
 :running:BGAProgressBar-Android:running:
 ============
 
+[![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Maven Central](https://img.shields.io/maven-central/v/cn.bingoogolapple/bga-progressbar)](https://central.sonatype.com/artifact/cn.bingoogolapple/bga-progressbar)
+
 ## 主要功能：
 - [x] Android 系统自带的 ProgressBar 的各种样式
 - [x] 带百分比数字的水平进度条样式
@@ -18,18 +21,16 @@ style="@android:style/Widget.ProgressBar.Horizontal"
 
 ## 效果图与示例 apk
 
-![bgaprogressbar1](https://cloud.githubusercontent.com/assets/8949716/19214303/2186d78a-8db2-11e6-913f-d50586334c14.gif)
-![bgaprogressbar2](https://cloud.githubusercontent.com/assets/8949716/19214304/2190646c-8db2-11e6-870a-ddcfaff496e7.gif)
+![bgaprogressbar1](screenshots/bgaprogressbar1.gif)
+![bgaprogressbar2](screenshots/bgaprogressbar2.gif)
 
 [点击下载 BGAProgressBarDemo.apk](http://fir.im/BGAProgressBar) 或扫描下面的二维码安装
 
-![image](https://cloud.githubusercontent.com/assets/8949716/21228916/a2609da8-c31a-11e6-8c96-f99aabaab437.png)
+![image](screenshots/qrcode-download.png)
 
 ## 使用
 
 ### 1.添加 Gradle 依赖
-
-[![Download](https://api.bintray.com/packages/bingoogolapple/maven/bga-progressbar/images/download.svg)](https://bintray.com/bingoogolapple/maven/bga-progressbar/_latestVersion) bga-progressbar 后面的「latestVersion」指的是左边这个 Download 徽章后面的「数字」，请自行替换。请不要再来问我「latestVersion」是什么了
 
 ```groovy
 dependencies {

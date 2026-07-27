@@ -21,12 +21,12 @@ style="@android:style/Widget.ProgressBar.Horizontal"
 
 ## 效果图与示例 apk
 
-![bgaprogressbar1](screenshots/bgaprogressbar1.gif)
-![bgaprogressbar2](screenshots/bgaprogressbar2.gif)
+![bgaprogressbar1](images/bgaprogressbar1.gif)
+![bgaprogressbar2](images/bgaprogressbar2.gif)
 
 [点击下载 BGAProgressBarDemo.apk](http://fir.im/BGAProgressBar) 或扫描下面的二维码安装
 
-![image](screenshots/qrcode-download.png)
+![image](images/qrcode-download.png)
 
 ## 使用
 

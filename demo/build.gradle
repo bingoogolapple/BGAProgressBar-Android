@@ -15,14 +15,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-
-    lint {
-        abortOnError false
-    }
 }
 
 dependencies {
-    implementation project(':library')
 //    implementation "cn.bingoogolapple:bga-progressbar:${VERSION_NAME}@aar"
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation project(':library')
+
+    // 以下几个库是演示案例所使用到的
+    implementation 'androidx.appcompat:appcompat:1.7.1'
 }
